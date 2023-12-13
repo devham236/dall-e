@@ -15,8 +15,11 @@ const App = () => {
             placeholder="A walking snake..."
             className="px-3 py-2 w-full mr-4 rounded-lg text-white bg-slate-700 outline-none"
           />
-          <button className="text-white bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg">
+          <button className="text-white mr-4 bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg">
             Generate
+          </button>
+          <button className="text-white bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg">
+            Surprise Me
           </button>
         </div>
         <button className="text-white px-4 py-3 mb-8 bg-slate-700 hover:bg-slate-900 duration-300 rounded-lg">
