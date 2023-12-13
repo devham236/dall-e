@@ -1,6 +1,18 @@
 import React from "react"
+import axios from "axios"
 
 const App = () => {
+  const getImages = async () => {
+    try {
+      const data = await axios.post("http://localhost:8000/images", {
+        input: "Test",
+      })
+      console.log(data.data.image)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="w-[100vw] h-[100vh] bg-slate-800 flex items-center justify-center">
       <div className="w-[1000px] h-full py-5 flex flex-col items-center">
@@ -15,7 +27,10 @@ const App = () => {
             placeholder="A walking snake..."
             className="px-3 py-2 w-full mr-4 rounded-lg text-white bg-slate-700 outline-none"
           />
-          <button className="text-white mr-4 bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg">
+          <button
+            onClick={getImages}
+            className="text-white mr-4 bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg"
+          >
             Generate
           </button>
           <button className="text-white bg-slate-700 px-4 py-3 hover:bg-slate-900 duration-300 rounded-lg">
