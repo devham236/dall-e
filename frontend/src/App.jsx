@@ -1,13 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import axios from "axios"
 
 const App = () => {
+  const [genImage, setGenImage] = useState(null)
+
   const getImage = async () => {
     try {
       const data = await axios.post("http://localhost:8000/images", {
         input: "Test",
       })
-      console.log(data.data.image)
+      const imageData = data.data.image.data[0]
+      setGenImage(imageData)
     } catch (error) {
       console.log(error)
     }
@@ -51,8 +54,12 @@ const App = () => {
           <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
           <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
         </div> */}
-        <div className="w-full h-1/2 bg-red-300">
-          <img src="" alt="AI Generated image" />
+        <div className="w-full h-1/2">
+          <img
+            src={genImage?.url}
+            alt="AI Generated Image"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
     </div>
