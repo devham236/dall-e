@@ -3,6 +3,12 @@ import axios from "axios"
 
 const App = () => {
   const [genImage, setGenImage] = useState(null)
+  const surpriseOptions = [
+    "A blue ostrich eating a melon",
+    "A matisse style shark on the telephone",
+    "A pineapple sunbathing on an island",
+    "A chimpanzee and a bear discussing politics",
+  ]
 
   const getImage = async () => {
     try {
