@@ -13,7 +13,7 @@ app.post("/images", async (req, res) => {
   const image = await openai.images.generate({
     model: "dall-e-3",
     prompt: "A cute baby sea otter",
-    n: 9,
+    n: 1,
   });
   res.status(200).json({ image });
 });
