@@ -3,6 +3,8 @@ import axios from "axios"
 
 const App = () => {
   const [genImage, setGenImage] = useState(null)
+  const [input, setInput] = useState("")
+  const [loading, setLoading] = useState(false)
   const surpriseOptions = [
     "A blue ostrich eating a melon",
     "A matisse style shark on the telephone",
@@ -11,12 +13,14 @@ const App = () => {
   ]
 
   const getImage = async () => {
+    setLoading(true)
     try {
       const data = await axios.post("http://localhost:8000/images", {
-        input: "Test",
+        input,
       })
       const imageData = data.data.image.data[0]
       setGenImage(imageData)
+      setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -35,6 +39,7 @@ const App = () => {
             type="text"
             placeholder="A walking snake..."
             className="px-3 py-2 w-full mr-4 rounded-lg text-white bg-slate-700 outline-none"
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             onClick={getImage}
@@ -60,12 +65,16 @@ const App = () => {
           <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
           <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
         </div> */}
-        <div className="w-full h-1/2">
-          <img
-            src={genImage?.url}
-            alt="AI Generated Image"
-            className="w-full h-full object-contain"
-          />
+        <div className="w-full h-1/2 flex items-center justify-center">
+          {loading ? (
+            <p className="text-white text-xl">Loading...</p>
+          ) : (
+            <img
+              src={genImage?.url}
+              alt="AI Generated Image"
+              className="w-full h-full object-contain"
+            />
+          )}
         </div>
       </div>
     </div>

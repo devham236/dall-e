@@ -10,9 +10,10 @@ app.use(express.json());
 const openai = new OpenAI({ apiKey: process.env.API_KEY });
 
 app.post("/images", async (req, res) => {
+  const { input } = req.body;
   const image = await openai.images.generate({
     model: "dall-e-3",
-    prompt: "A cute baby sea otter",
+    prompt: input,
     n: 1,
   });
   res.status(200).json({ image });
