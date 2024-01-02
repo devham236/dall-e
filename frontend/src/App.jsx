@@ -54,17 +54,6 @@ const App = () => {
         <button className="text-white px-4 py-3 mb-8 bg-slate-700 hover:bg-slate-900 duration-300 rounded-lg">
           Upload Image
         </button>
-        {/* <div className="w-full h-full grid gap-4 grid-cols-3 grid-rows-3 bg-red-500">
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-          <div className="w-[250px] h-[250px] bg-blue-400">Img</div>
-        </div> */}
         <div className="w-full h-1/2 flex items-center justify-center">
           {loading ? (
             <p className="text-white text-xl">Loading...</p>
